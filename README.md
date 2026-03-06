@@ -1,3 +1,4 @@
+
 # US Rent & Housing Affordability Explorer
 
 An interactive housing analytics dashboard built with **Python, SQL, Streamlit, Altair, and Plotly**.  
@@ -88,3 +89,4 @@ Summary KPIs including:
 ```bash
 git clone https://github.com/YOUR_USERNAME/rent-affordability-explorer.git
 cd rent-affordability-explorer
+
