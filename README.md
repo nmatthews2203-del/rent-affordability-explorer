@@ -91,6 +91,6 @@ Summary KPIs including:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/rent-affordability-explorer.git
+git clone https://github.com/nmatthews2203-del/rent-affordability-explorer.git
 cd rent-affordability-explorer
 
