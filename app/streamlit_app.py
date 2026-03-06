@@ -621,18 +621,32 @@ map_metric = st.radio(
     index=0
 )
 
-state_map_df = safe_read_sql(f"""
+state_map_raw = safe_read_sql(f"""
 SELECT
   reg.state AS state,
-  {"median(r.rent)" if map_metric.startswith("Median") else "avg(r.rent)"} AS rent
+  r.rent
 FROM rent r
 JOIN regions reg ON r.region_key = reg.region_key
 WHERE r.date = '{selected_month}'
 {state_filter_regions}
 {outlier_filter_rent}
-GROUP BY reg.state
-ORDER BY rent DESC;
 """)
+
+if state_map_raw.empty:
+    state_map_df = pd.DataFrame()
+else:
+    if map_metric.startswith("Median"):
+        state_map_df = (
+            state_map_raw.groupby("state", as_index=False)["rent"]
+            .median()
+            .sort_values("rent", ascending=False)
+        )
+    else:
+        state_map_df = (
+            state_map_raw.groupby("state", as_index=False)["rent"]
+            .mean()
+            .sort_values("rent", ascending=False)
+        )
 
 if state_map_df.empty:
     st.info("No data available to draw the map for the selected filters.")
