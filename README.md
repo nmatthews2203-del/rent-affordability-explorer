@@ -1,6 +1,10 @@
 
 # US Rent & Housing Affordability Explorer
 
+## Live App
+
+[Open the live dashboard](https://rent-affordability-explorer-zighvpveutyv5jfppaedgh.streamlit.app/)
+
 An interactive housing analytics dashboard built with **Python, SQL, Streamlit, Altair, and Plotly**.  
 This project combines **Zillow ZORI county-level rent data** with **Census ACS median household income** data to analyze housing affordability, rent burden, rent trends, and geographic differences across the United States.
 
